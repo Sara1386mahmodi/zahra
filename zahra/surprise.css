@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(255, 246, 236, 0.88),
+            rgba(255, 240, 243, 0.88)
+        ),
+        #fff6ec;
+    color: #66515a;
+    font-family: 'Baloo 2', sans-serif;
+    overflow-x: hidden;
+}
+
+main {
+    position: relative;
+    min-height: 100svh;
+    z-index: 2;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Background lights */
+
+.cinematic-light {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(244, 182, 200, 0.3),
+        transparent 70%
+    );
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+    animation: lightMove 12s infinite alternate ease-in-out;
+}
+
+.light-one {
+    top: -250px;
+    left: -200px;
+}
+
+.light-two {
+    right: -250px;
+    bottom: -250px;
+    background: radial-gradient(
+        circle,
+        rgba(201, 184, 219, 0.35),
+        transparent 70%
+    );
+    animation-delay: 5s;
+}
+
+/* Stars */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, #f4b6c8 2px, transparent 2px),
+        radial-gradient(circle, #f6c5a5 1.5px, transparent 1.5px),
+        radial-gradient(circle, #c9b8db 1px, transparent 1px);
+    background-size: 120px 120px, 180px 180px, 90px 90px;
+    opacity: 0.65;
+    animation: starsMove 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Opening */
+
+.opening-scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.intro-text {
+    opacity: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    margin: 10px;
+    color: #946b7d;
+    animation: fadeIn 2s forwards;
+}
+
+.delay-one {
+    animation-delay: 4s;
+}
+
+.delay-two {
+    animation-delay: 6s;
+}
+
+.karima-name {
+    margin-top: 40px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: clamp(4rem, 15vw, 10rem);
+    letter-spacing: 15px;
+    color: #d982a0;
+    opacity: 0;
+    text-shadow:
+        0 0 5px rgba(255, 220, 230, 0.8),
+        0 0 15px rgba(217, 130, 160, 0.6),
+        0 0 30px rgba(246, 197, 165, 0.5),
+        0 0 60px rgba(244, 182, 200, 0.35);
+    animation:
+        nameReveal 3s forwards 6s,
+        redGlow 2s infinite alternate 9s;
+}
+
+.birth-age {
+    margin-top: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    color: #a18aaf;
+    opacity: 0;
+    animation: fadeIn 2s forwards 8s;
+}
+
+/* Buttons */
+
+button {
+    padding: 15px 30px;
+    margin-top: 40px;
+    background: linear-gradient(135deg, #fff6ec, #fce1e9);
+    border: 2px solid #df9bad;
+    border-radius: 30px;
+    color: #b96e89;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #edabc0, #d9c5e8);
+    color: white;
+    box-shadow: 0 0 25px rgba(217, 130, 160, 0.45);
+    transform: translateY(-3px);
+}
+
+/* Main birthday scene */
+
+.main-scene {
+    position: relative;
+    min-height: 100vh;
+    padding: 100px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.birthday-content {
+    position: relative;
+    z-index: 3;
+    animation: sceneReveal 2s ease;
+}
+
+.small-title {
+    color: #c98291;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+}
+
+.birthday-content h2 {
+    margin-top: 20px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #66515a;
+}
+
+.birthday-content h3 {
+    margin-top: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #d982a0;
+    text-shadow: 0 0 20px rgba(217, 130, 160, 0.35);
+}
+
+.gold-line {
+    width: 100px;
+    height: 3px;
+    margin: 30px auto;
+    background: linear-gradient(
+        to right,
+        #c9b8db,
+        #f4b6c8,
+        #f6c5a5
+    );
+    border-radius: 10px;
+}
+
+.birthday-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #946b7d;
+}
+
+/* Balloons */
+
+#opening-balloons,
+#floating-balloons {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 60px;
+    height: 75px;
+    border-radius: 50%;
+    animation: balloonRise linear forwards;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    top: 74px;
+    left: 50%;
+    width: 1px;
+    height: 180px;
+    background: rgba(148, 107, 125, 0.35);
+}
+
+.gold-balloon {
+    background: radial-gradient(
+        circle at 30% 25%,
+        #fff0d8,
+        #f6c5a5 45%,
+        #df9c9e
+    );
+    box-shadow: 0 0 25px rgba(246, 197, 165, 0.55);
+}
+
+.white-balloon {
+    background: radial-gradient(
+        circle at 30% 25%,
+        #ffffff,
+        #f4dce7 60%,
+        #c9b8db
+    );
+    box-shadow: 0 0 20px rgba(201, 184, 219, 0.5);
+}
+
+.black-balloon {
+    background: radial-gradient(
+        circle at 30% 25%,
+        #ffd8df,
+        #e99bb4 60%,
+        #c98291
+    );
+    box-shadow: 0 0 25px rgba(217, 130, 160, 0.45);
+}
+
+/* Confetti */
+
+#confetti-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.confetti {
+    position: absolute;
+    top: -30px;
+    width: 10px;
+    height: 18px;
+    animation: confettiFall linear forwards;
+}
+
+.gold {
+    background: #f6c5a5;
+}
+
+.cream {
+    background: #fff6ec;
+}
+
+.red {
+    background: #e99bb4;
+}
+
+.black {
+    background: #c9b8db;
+}
+
+/* Final scene */
+
+.final-scene {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.final-content h2 {
+    margin-top: 30px;
+    color: #d982a0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+}
+
+/* Ready overlay */
+
+.ready-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(201, 184, 219, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.ready-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 35px 25px;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 240, 243, 0.95)
+    );
+    border: 2px solid #e8b0c2;
+    border-radius: 28px;
+    box-shadow: 0 0 40px rgba(217, 130, 160, 0.3);
+    animation: sceneReveal 1s ease;
+}
+
+.ready-box h2 {
+    color: #c98291;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.ready-box p {
+    color: #946b7d;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.1rem;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes nameReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+        letter-spacing: 40px;
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        letter-spacing: 15px;
+    }
+}
+
+@keyframes redGlow {
+    from {
+        text-shadow:
+            0 0 5px rgba(255, 220, 230, 0.7),
+            0 0 15px rgba(217, 130, 160, 0.5),
+            0 0 30px rgba(246, 197, 165, 0.4);
+    }
+    to {
+        text-shadow:
+            0 0 10px rgba(255, 220, 230, 0.9),
+            0 0 30px rgba(217, 130, 160, 0.7),
+            0 0 60px rgba(246, 197, 165, 0.5);
+    }
+}
+
+@keyframes lightMove {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(200px, 150px);
+    }
+}
+
+@keyframes starsMove {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-120px);
+    }
+}
+
+@keyframes confettiFall {
+    from {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes balloonRise {
+    from {
+        bottom: -150px;
+        transform: translateX(0) rotate(0deg);
+    }
+    to {
+        bottom: 120vh;
+        transform: translateX(100px) rotate(15deg);
+    }
+}
+
+@keyframes sceneReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .intro-text {
+        font-size: 1.35rem;
+    }
+
+    .karima-name {
+        font-size: 4rem;
+        letter-spacing: 8px;
+    }
+
+    .birthday-content h2 {
+        font-size: 3rem;
+    }
+
+    .birthday-content h3 {
+        font-size: 2.7rem;
+    }
+
+    .balloon {
+        width: 45px;
+        height: 60px;
+    }
+}
